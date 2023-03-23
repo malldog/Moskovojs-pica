@@ -37,7 +37,21 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		return summa;
 	}
 	
-	public String izvadit() {
+	public String izvadit(){
+		if(adrese == "Uz vietas") {
+			
+			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
+			return izvade;
+		}else{
+			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
+			return izvade;
+		}
+		
+		
+		
+		
+	}
+	public String toString(){
 		if(adrese == "Uz vietas") {
 			
 			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
@@ -48,7 +62,6 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		}
 		
 	}
-	
 		
 			
 		

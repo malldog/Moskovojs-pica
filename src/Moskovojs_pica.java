@@ -6,12 +6,28 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Moskovojs_pica {
+	
 	public static String sveiciens(){
 		String sveicien = "Sveicinati labakaja picerija!";
 		return sveicien;
 	}
+//	Moskovojs_pica(){  
+//        JFrame f= new JFrame("Keksitis");  
+//        JCheckBox ke1 = new JCheckBox("23");  
+//        ke1.setBounds(100,100, 50,50);  
+//        JCheckBox ke2 = new JCheckBox("Java", true);  
+//        ke2.setBounds(100,150, 50,50);  
+//        f.add(ke1);  
+//        f.add(ke2);  
+//        f.setSize(400,400);  
+//        f.setLayout(null);  
+//        f.setVisible(true);  
+//     }  
+  
+    
+      
 	public static void main(String[] args) {
-		
+//		 new Moskovojs_pica(); 
 		String izvele;
 		String darbibas[] = {"Nopirkt picu", "Pasutit picu", "Aiziet", "Apturet"};
 		
@@ -71,7 +87,14 @@ public class Moskovojs_pica {
 			     
 			     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedavas, summa);
 			     JOptionPane.showMessageDialog(null, pica.izvadit(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
-				 
+			     try {
+					 FileWriter writer = new FileWriter("picas.txt", true);
+				 	 writer.write(pica.toString()+"\n");
+				 	 writer.close();
+				 	 JOptionPane.showMessageDialog(null, "Pica ievietota txt faila", null, JOptionPane.INFORMATION_MESSAGE);
+				 }catch(Exception e) {
+					 JOptionPane.showMessageDialog(null, "Kluda", "error", JOptionPane.ERROR_MESSAGE);
+				 }
 				}else	JOptionPane.showMessageDialog(null, "Jus neesiet uz vietas picerija, pameginiet pasutit picu", "error", JOptionPane.ERROR_MESSAGE);
 				break;
 				
@@ -105,17 +128,18 @@ public class Moskovojs_pica {
 				     merceCena = merceM.size()*2;
 				     piedavasCena = piedavasM.length * 1;
 				     summa = izmersCena + merceCena + piedavasCena;
-				        
+				       
 				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedavas, summa);
 					 JOptionPane.showMessageDialog(null, pica.izvadit(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
-//					 try {
-//						 FileWriter writer = new FileWriter("picas.txt", true);
-//					 	 writer.write(pica.str()+" ");
-//					 	 writer.close();
-//					 	 JOptionPane.showMessageDialog(null, "Pica ievietota picas", null, JOptionPane.INFORMATION_MESSAGE);
-//					 }catch(Exception e) {
-//						 JOptio
-//					 }
+					 
+					 try {
+						 FileWriter writer = new FileWriter("picas.txt", true);
+					 	 writer.write(pica.toString()+"\n");
+					 	 writer.close();
+					 	 JOptionPane.showMessageDialog(null, "Pica ievietota txt faila", null, JOptionPane.INFORMATION_MESSAGE);
+					 }catch(Exception e) {
+						 JOptionPane.showMessageDialog(null, "Kluda", "error", JOptionPane.ERROR_MESSAGE);
+					 }
 					 
 				}else 	JOptionPane.showMessageDialog(null, "Jus neesiet majas, pameginiet nopirkt picu", "error", JOptionPane.ERROR_MESSAGE);
 
