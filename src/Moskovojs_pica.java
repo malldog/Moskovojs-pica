@@ -11,23 +11,11 @@ public class Moskovojs_pica {
 		String sveicien = "Sveicinati labakaja picerija!";
 		return sveicien;
 	}
-//	Moskovojs_pica(){  
-//        JFrame f= new JFrame("Keksitis");  
-//        JCheckBox ke1 = new JCheckBox("23");  
-//        ke1.setBounds(100,100, 50,50);  
-//        JCheckBox ke2 = new JCheckBox("Java", true);  
-//        ke2.setBounds(100,150, 50,50);  
-//        f.add(ke1);  
-//        f.add(ke2);  
-//        f.setSize(400,400);  
-//        f.setLayout(null);  
-//        f.setVisible(true);  
-//     }  
+
   
     
       
 	public static void main(String[] args) {
-//		 new Moskovojs_pica(); 
 		String izvele;
 		String darbibas[] = {"Nopirkt picu", "Pasutit picu", "Aiziet", "Apturet"};
 		
@@ -36,7 +24,7 @@ public class Moskovojs_pica {
 		
 		double izmersCena = 0;
 		double merceCena = 0;
-		double piedavasCena = 0;
+		double piedevasCena = 0;
 		double summa = 0;
 		
 		String merces[] = {"Kecupa", "Kiploku", "Pesto"};
@@ -44,8 +32,13 @@ public class Moskovojs_pica {
 		int izmeri;
 		String merce = "";
 		String mercee[] = {};
-		String piedavas = "";
-		String piedavasM[] = {};
+		String piedevas = "";
+		String piedevasM[] = {};
+		List<String> atlautasP = Arrays.asList("desa", "pepperoni", "bekons");
+		
+		int izvele2;
+		
+		 String[] options = {"Pepperoni", "Mushrooms", "Onions", "Sausage", "Bacon"};
 		
 		boolean majas = false;
 		
@@ -77,15 +70,39 @@ public class Moskovojs_pica {
 				 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
 				 List<String> merceM = new ArrayList<String>(Arrays.asList(mercee));
 				 merceM.add(merce);
+				 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+			     piedevasM = piedevas.split(",");
+//OTRS VARIANTS PIEDEVAM
+//			     boolean binne = false;
+//				 do {
+//					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+//				     piedevasM = piedevas.split(",");
+//
+//			            if (!atlautasP.contains(piedevas)) {
+//			               JOptionPane.showMessageDialog(null, "Tadas piedavas neeksiste", null, JOptionPane.ERROR_MESSAGE);
+//			            }
+//			           
+//			          izvele2 =  JOptionPane.showOptionDialog(null, "Vel kaadu piedeva velies?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+//			        		  new String[] {"Ja", "Ne"}, null);
+//			          switch(izvele2){
+//			   			case 0:
+//			   				binne = false;
+//			                break;
+//			            case 1:
+//			                binne = true;
+//			                break;
+//			          
+//			        }
+//			        } while (binne == false);
+//			        
+//			        JOptionPane.showMessageDialog(null, "Tu ievadiji sekojosas piedavas: "+piedevas, null, JOptionPane.INFORMATION_MESSAGE);
 				 
-				 piedavas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
-			     piedavasM = piedavas.split(",");
 			      
 			     merceCena = merceM.size()*2;
-			     piedavasCena = piedavasM.length * 1;
-			     summa = izmersCena + merceCena + piedavasCena;
-			     
-			     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedavas, summa);
+			     piedevasCena = piedevasM.length * 1;
+			     summa = izmersCena + merceCena + piedevasCena;
+			     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, summa);
+			  
 			     JOptionPane.showMessageDialog(null, pica.izvadit(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
 			     try {
 					 FileWriter writer = new FileWriter("picas.txt", true);
@@ -122,14 +139,14 @@ public class Moskovojs_pica {
 					 List<String> merceM = new ArrayList<String>(Arrays.asList(mercee));
 					 merceM.add(merce);
 					 
-					 piedavas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
-				     piedavasM = piedavas.split(",");
+					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+				     piedevasM = piedevas.split(",");
 				      
 				     merceCena = merceM.size()*2;
-				     piedavasCena = piedavasM.length * 1;
-				     summa = izmersCena + merceCena + piedavasCena;
+				     piedevasCena = piedevasM.length * 1;
+				     summa = izmersCena + merceCena + piedevasCena;
 				       
-				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedavas, summa);
+				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, summa);
 					 JOptionPane.showMessageDialog(null, pica.izvadit(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
 					 
 					 try {

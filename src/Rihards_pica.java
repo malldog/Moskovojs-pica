@@ -2,17 +2,17 @@ import javax.swing.JOptionPane;
 
 public class Rihards_pica {
 	private String vards, adrese;
-	private String izmers, merce, piedavas;
+	private String izmers, merce, piedevas;
 	private double summa;
-	
-public Rihards_pica(String vards, String adrese, String izmers, String merce, String piedavas, double summa){
+	private String[] toppings;
+public Rihards_pica(String vards, String adrese, String izmers, String merce, String piedevas, double summa){
 		this.vards=vards;
 		this.adrese=adrese;
 		this.izmers=izmers; 
 		this.merce=merce;
-		this.piedavas=piedavas;
+		this.piedevas=piedevas;
 		this.summa=summa;
-		
+		this.toppings = new String[]{};
 		
 	}
 	public String getVards(){
@@ -29,21 +29,22 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		return merce;
 	}
 	
-	public String getPiedavas(){
-		return piedavas;
+	public String getPiedevas(){
+		return piedevas;
 	}
 	
 	public double getSumma(){
 		return summa;
 	}
 	
+	
 	public String izvadit(){
 		if(adrese == "Uz vietas") {
 			
-			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
 			return izvade;
 		}else{
-			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
 			return izvade;
 		}
 		
@@ -54,10 +55,10 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	public String toString(){
 		if(adrese == "Uz vietas") {
 			
-			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
 			return izvade;
 		}else{
-			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedavas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
 			return izvade;
 		}
 		
