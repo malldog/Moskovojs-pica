@@ -2,17 +2,16 @@ import javax.swing.JOptionPane;
 
 public class Rihards_pica {
 	private String vards, adrese;
-	private String izmers, merce, piedevas;
+	private String izmers, merce, piedevas, siers;
 	private double summa;
-	private String[] toppings;
-public Rihards_pica(String vards, String adrese, String izmers, String merce, String piedevas, double summa){
+public Rihards_pica(String vards, String adrese, String izmers, String merce, String piedevas, String siers, double summa){
 		this.vards=vards;
 		this.adrese=adrese;
 		this.izmers=izmers; 
 		this.merce=merce;
 		this.piedevas=piedevas;
+		this.siers=siers;
 		this.summa=summa;
-		this.toppings = new String[]{};
 		
 	}
 	public String getVards(){
@@ -32,6 +31,9 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	public String getPiedevas(){
 		return piedevas;
 	}
+	public String getSiers(){
+		return siers;
+	}
 	
 	public double getSumma(){
 		return summa;
@@ -41,10 +43,10 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	public String izvadit(){
 		if(adrese == "Uz vietas") {
 			
-			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
 		}else{
-			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
 		}
 		
