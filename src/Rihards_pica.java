@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+
 
 public class Rihards_pica {
 	private String vards, adrese;
@@ -12,7 +12,6 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		this.piedevas=piedevas;
 		this.siers=siers;
 		this.summa=summa;
-		
 	}
 
 	public String getVards(){
@@ -47,7 +46,6 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		if(adrese == "Uz vietas") {
 			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$";
-			//String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
 		}else{
 			String izvade = "\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
@@ -61,12 +59,13 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	}
 	//Prieks izveidotam picam
 	public String izvadit() {
+		
 		if(adrese == "Uz vietas") {
 			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$\n---------------------------------------------------------";
-			//String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
-		}else{
+		
+		}else {
 			String izvade = "\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$\n---------------------------------------------------------";
 			return izvade;

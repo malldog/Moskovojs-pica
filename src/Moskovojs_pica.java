@@ -14,12 +14,16 @@ public class Moskovojs_pica {
 	}
 	
 	public static void main(String[] args) {
-		
 		String izvele;
 		String darbibas[] = {"Nopirkt picu", "Pasutit picu", "Aiziet", "Apskatit jau izveidotas picas", "Apturet"};
 		
 		String vards= "";
 		String adrese = "Uz vietas";
+		
+//		double dzeramNauda = 0;
+//		boolean dzeramNaud = false;
+//		String izvele2 = "";
+//		List<String> atlautaIzvele = Arrays.asList("Ja", "Ne");
 		
 		double izmersCena = 0;
 		double merceCena = 0;
@@ -36,11 +40,9 @@ public class Moskovojs_pica {
 		
 		
 		String siers = "";
-		ArrayList<Rihards_pica> picas = new ArrayList<Rihards_pica>();
 		List<String> atlautieSieri = Arrays.asList("mocarella", "cedara", "provolone");
-		//Queue<Rihards_pica> picas = new LinkedList<Rihards_pica>();
 		
-		
+		ArrayList<Rihards_pica> picas = new ArrayList<Rihards_pica>();
 		
 		
 		boolean majas = false;
@@ -98,8 +100,22 @@ public class Moskovojs_pica {
 			     }else {
 			    	 merceCena = 2; }
 			     
+//			     do {
+//			     izvele2 =(String) JOptionPane.showInputDialog(null, "Dosi dzeram naudu?(Ja vai Ne)", null, JOptionPane.QUESTION_MESSAGE);
+//			     
+//			      if(izvele2 == "Ja"){
+//			    	 do{
+//			    		 dzeramNaud = true;
+//						    dzeramNauda = Integer.parseInt(JOptionPane.showInputDialog(null , "Cik dosi?"));
+//						}while(dzeramNauda<0 || dzeramNauda>100);
+//			     }else{
+//			    	 
+//			     }
+//			     
+//			     }while(!atlautaIzvele.contains(izvele2));
 			     
-			    
+			     
+			     
 			     summa = izmersCena + merceCena + piedevasCena; 
 			     
 			     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, siers, summa);
