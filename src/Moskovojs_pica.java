@@ -1,7 +1,9 @@
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import javax.swing.JOptionPane;
 
@@ -11,20 +13,17 @@ public class Moskovojs_pica {
 		String sveicien = "Sveicinati labakaja picerija!";
 		return sveicien;
 	}
-
-  
-    
-      
+	
 	public static void main(String[] args) {
+		
 		String izvele;
-		String darbibas[] = {"Nopirkt picu", "Pasutit picu", "Aiziet", "Apturet"};
+		String darbibas[] = {"Nopirkt picu", "Pasutit picu", "Aiziet", "Apskatit jau izveidotas picas", "Apturet"};
 		
 		String vards= "";
 		String adrese = "Uz vietas";
 		
 		double izmersCena = 0;
 		double merceCena = 0;
-		double siersCena = 0;
 		double piedevasCena = 0;
 		double summa = 0;
 		
@@ -39,7 +38,7 @@ public class Moskovojs_pica {
 		
 		String siers = "";
 		List<String> atlautieSieri = Arrays.asList("mocarella", "cedara", "provolone");
-		
+		Queue<Rihards_pica> picas = new LinkedList<Rihards_pica>();
 		
 		
 		
@@ -53,8 +52,9 @@ public class Moskovojs_pica {
 			case "Nopirkt picu":
 				
 				if(majas==false) {
-				
+				do {
 				 vards =(String)JOptionPane.showInputDialog(null, "Ievadi savu vardu", null, JOptionPane.QUESTION_MESSAGE);
+				}while(vards.isBlank());
 				 izmeri = JOptionPane.showOptionDialog(null, "Cik lielu picu velies?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
 						 null, new String[] {"20cm", "30cm", "50cm"}, null);
 				 switch(izmeri){
@@ -83,17 +83,12 @@ public class Moskovojs_pica {
 		            }
 				 }while(!atlautieSieri.contains(siers));
 				 
+				 do {
 				 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+				}while(piedevas.isBlank());
 			     piedevasM = piedevas.split(",");
-
-				 
-			      
-			     if(siers == "mocarella") {
-			    	 siersCena = 2;
-			     }else if(siers == "cedara") {
-			    	 siersCena = 2.50;
-			     }else {
-			    	 siersCena = 3; }
+	     
+			     
 			     piedevasCena = piedevasM.length * 1;
 			     
 			     if(merce == merces[0]) {
@@ -104,11 +99,12 @@ public class Moskovojs_pica {
 			    	 merceCena = 2; }
 			     
 			     
+			    
+			     summa = izmersCena + merceCena + piedevasCena; 
 			     
-			     summa = izmersCena + merceCena + piedevasCena + siersCena;
 			     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, siers, summa);
-			  
-			     JOptionPane.showMessageDialog(null, pica.izvadit(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
+			     picas.add(pica);
+			     JOptionPane.showMessageDialog(null, pica.ceks(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
 			     try {
 					 FileWriter writer = new FileWriter("picas.txt", true);
 				 	 writer.write(pica.toString()+"\n");
@@ -122,8 +118,12 @@ public class Moskovojs_pica {
 				
 			case "Pasutit picu":
 				if(majas==true){
+					do {
 					 vards =(String)JOptionPane.showInputDialog(null, "Ievadi savu vardu", null, JOptionPane.QUESTION_MESSAGE);
+				}while(vards.isBlank());
+					do {
 					 adrese =(String)JOptionPane.showInputDialog(null, "Ievadi savu adresi", null, JOptionPane.QUESTION_MESSAGE);
+					}while(adrese.isBlank());
 					 izmeri = JOptionPane.showOptionDialog(null, "Cik lielu picu velies?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
 							 null, new String[] {"20cm", "30cm", "50cm"}, null);
 					 switch(izmeri){
@@ -148,17 +148,12 @@ public class Moskovojs_pica {
 				               JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
 				            }
 						 }while(!atlautieSieri.contains(siers));
-					 
+					 do {
 					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+					}while(piedevas.isBlank());
 				     piedevasM = piedevas.split(",");
 				      
 				    
-				     if(siers == "mocarella") {
-				    	 siersCena = 2;
-				     }else if(siers == "cedara") {
-				    	 siersCena = 2.50;
-				     }else {
-				    	 siersCena = 3; }
 				     piedevasCena = piedevasM.length * 1;
 				     
 				     if(merce == merces[0]) {
@@ -166,11 +161,16 @@ public class Moskovojs_pica {
 				     }else if(merce == merces[1]) {
 				    	 merceCena = 1.50;
 				     }else {
-				    	 merceCena = 2; }
-				     summa = izmersCena + merceCena + piedevasCena+ siersCena;
-				       
-				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas,siers, summa);
-					 JOptionPane.showMessageDialog(null, pica.izvadit(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
+				    	 merceCena = 2; }		
+				     
+				     
+				    
+					    JOptionPane.showMessageDialog(null, "Par piegadi samaksajat 3 eiro");
+					    	 //Piegade 3 eiro
+					     summa = izmersCena + merceCena + piedevasCena+3; 
+					     
+				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, siers, summa);
+					 JOptionPane.showMessageDialog(null, pica.ceks(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
 					 
 					 try {
 						 FileWriter writer = new FileWriter("picas.txt", true);
@@ -195,6 +195,20 @@ public class Moskovojs_pica {
 					JOptionPane.showMessageDialog(null, sveiciens(), "Picerija", JOptionPane.INFORMATION_MESSAGE);
 				}
 				break;
+				
+			case "Apskatit jau izveidotas picas":
+				if(!picas.isEmpty()) {
+	
+		        	Iterator<Rihards_pica> apskatit = picas.iterator();
+		        	String str = "Picas:\n";
+		        	while(apskatit.hasNext()){
+					str += apskatit.next().izvadit();
+		        	}
+		        	JOptionPane.showMessageDialog(null, str, "Pasutijumi", JOptionPane.INFORMATION_MESSAGE);
+		 
+				}else{
+					JOptionPane.showMessageDialog(null, "Nav vel veikti pasutijumi", null, JOptionPane.WARNING_MESSAGE);
+				}
 				
 			
 			}

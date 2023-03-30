@@ -14,6 +14,7 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		this.summa=summa;
 		
 	}
+
 	public String getVards(){
 		return vards;
 	}
@@ -38,15 +39,19 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	public double getSumma(){
 		return summa;
 	}
-	
-	
-	public String izvadit(){
+	public String ceks(){
+		
+		
+		
+	     
 		if(adrese == "Uz vietas") {
-			
-			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
+			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$";
+			//String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
 		}else{
-			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
+			String izvade = "Picerija\n\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$";
 			return izvade;
 		}
 		
@@ -54,13 +59,28 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		
 		
 	}
+	//Prieks izveidotam picam
+	public String izvadit() {
+		if(adrese == "Uz vietas") {
+			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$\n---------------------------------------------------------";
+			//String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
+			return izvade;
+		}else{
+			String izvade = "Picerija\n\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$\n---------------------------------------------------------";
+			return izvade;
+		}
+	}
+	
+	//Prieks txt faila
 	public String toString(){
 		if(adrese == "Uz vietas") {
 			
-			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci ar "+siers+" sieru un "+piedevas+" piedevam un samaksaja "+summa+"$";
 			return izvade;
 		}else{
-			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci un "+piedevas+" piedevam un samaksaja "+summa;
+			String izvade = vards+" pasutija uz adresi "+adrese+" "+izmers+" picu ar "+merce+" merci ar "+siers+" sieru un "+piedevas+" piedevam un samaksaja "+summa+"$";
 			return izvade;
 		}
 		
