@@ -46,3 +46,7 @@ Rihards2 pasutija uz adresi Ventspils iela 50cm picu ar kecupa merci ar provolon
  nopirka  picu ar null merci ar mocarella sieru un  piedevam un samaksaja 3.0$
 Rihards nopirka 50cm picu ar kecupa merci ar mocarella sieru un desu, pepperoni piedevam un samaksaja 11.99$
 Rihards pasutija uz adresi Ventspils iela 50cm picu ar kecupa merci ar provolone sieru un jalapeno piedevam un samaksaja 13.99$
+Rihards nopirka 50cm picu ar kiploku merci ar cedara sieru un gurkiti, pepperoni\ piedevam un samaksaja 12.49$
+Rihards nopirka 30cm picu ar pesto merci ar mocarella sieru un pepperoni piedevam un samaksaja 9.99$
+Rihards nopirka 50cm picu ar pesto merci ar mocarella sieru un desa, pepperoni, sipoli piedevam un samaksaja 13.99$
+Rihards pasutija uz adresi Vanes iela 20cm picu ar kecupa merci ar provolone sieru un tomati, bekons piedevam un samaksaja 11.99$

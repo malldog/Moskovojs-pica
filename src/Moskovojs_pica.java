@@ -1,9 +1,8 @@
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 import javax.swing.JOptionPane;
 
@@ -37,8 +36,9 @@ public class Moskovojs_pica {
 		
 		
 		String siers = "";
+		ArrayList<Rihards_pica> picas = new ArrayList<Rihards_pica>();
 		List<String> atlautieSieri = Arrays.asList("mocarella", "cedara", "provolone");
-		Queue<Rihards_pica> picas = new LinkedList<Rihards_pica>();
+		//Queue<Rihards_pica> picas = new LinkedList<Rihards_pica>();
 		
 		
 		
@@ -164,12 +164,12 @@ public class Moskovojs_pica {
 				    	 merceCena = 2; }		
 				     
 				     
-				    
 					    JOptionPane.showMessageDialog(null, "Par piegadi samaksajat 3 eiro");
 					    	 //Piegade 3 eiro
 					     summa = izmersCena + merceCena + piedevasCena+3; 
 					     
 				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, siers, summa);
+				     picas.add(pica);
 					 JOptionPane.showMessageDialog(null, pica.ceks(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
 					 
 					 try {
@@ -200,15 +200,14 @@ public class Moskovojs_pica {
 				if(!picas.isEmpty()) {
 	
 		        	Iterator<Rihards_pica> apskatit = picas.iterator();
-		        	String str = "Picas:\n";
+		        	String string = "Picas:\n";
 		        	while(apskatit.hasNext()){
-					str += apskatit.next().izvadit();
+					string += apskatit.next().izvadit();
 		        	}
-		        	JOptionPane.showMessageDialog(null, str, "Pasutijumi", JOptionPane.INFORMATION_MESSAGE);
-		 
-				}else{
-					JOptionPane.showMessageDialog(null, "Nav vel veikti pasutijumi", null, JOptionPane.WARNING_MESSAGE);
-				}
+		        	JOptionPane.showMessageDialog(null, string, "Pasutijumi", JOptionPane.INFORMATION_MESSAGE);
+					}else{
+					JOptionPane.showMessageDialog(null, "Nav vel veikti pasutijumi", null, JOptionPane.ERROR_MESSAGE);
+					}
 				
 			
 			}

@@ -45,12 +45,12 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 		
 	     
 		if(adrese == "Uz vietas") {
-			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$";
 			//String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
 		}else{
-			String izvade = "Picerija\n\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+			String izvade = "\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$";
 			return izvade;
 		}
@@ -62,12 +62,12 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	//Prieks izveidotam picam
 	public String izvadit() {
 		if(adrese == "Uz vietas") {
-			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$\n---------------------------------------------------------";
 			//String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci un pa virsu "+siers+" sieru un "+piedevas+" piedevam. Kopa samaksaja "+summa;
 			return izvade;
 		}else{
-			String izvade = "Picerija\n\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\n\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
+			String izvade = "\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\nPicas izmers "+izmers+"\nPicas merce "+merce+"\nPicas siers "+siers+
 					"\nPicas piedevas "+piedevas+"\n\nKopa samaksajat: "+summa+"$\n---------------------------------------------------------";
 			return izvade;
 		}
@@ -76,7 +76,6 @@ public Rihards_pica(String vards, String adrese, String izmers, String merce, St
 	//Prieks txt faila
 	public String toString(){
 		if(adrese == "Uz vietas") {
-			
 			String izvade = vards+" nopirka "+izmers+" picu ar "+merce+" merci ar "+siers+" sieru un "+piedevas+" piedevam un samaksaja "+summa+"$";
 			return izvade;
 		}else{
