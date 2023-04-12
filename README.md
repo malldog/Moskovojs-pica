@@ -1,8 +1,8 @@
 ## Picas programma :pizza:
-#### Programmas apraksts:
+### Programmas apraksts:
 
 
-####Uzdevumi:
+### Uzdevumi:
 - [ ] Izveidot README.me failā programmas aprakstu
 - [x] Iegrūzt picērijas projektu uz GitHub
 - [x] Izveidot klasi Lietotajs ar atribūtām vards, adrese
