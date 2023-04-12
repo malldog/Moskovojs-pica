@@ -20,11 +20,6 @@ public class Moskovojs_pica {
 		String vards= "";
 		String adrese = "Uz vietas";
 		
-//		double dzeramNauda = 0;
-//		boolean dzeramNaud = false;
-//		String izvele2 = "";
-//		List<String> atlautaIzvele = Arrays.asList("Ja", "Ne");
-		
 		double izmersCena = 0;
 		double merceCena = 0;
 		double piedevasCena = 0;
@@ -42,7 +37,7 @@ public class Moskovojs_pica {
 		String siers = "";
 		List<String> atlautieSieri = Arrays.asList("mocarella", "cedara", "provolone");
 		
-		ArrayList<Rihards_pica> picas = new ArrayList<Rihards_pica>();
+		ArrayList<Lietotajs> picas = new ArrayList<Lietotajs>();
 		
 		
 		boolean majas = false;
@@ -99,31 +94,17 @@ public class Moskovojs_pica {
 			    	 merceCena = 1.50;
 			     }else {
 			    	 merceCena = 2; }
-			     
-//			     do {
-//			     izvele2 =(String) JOptionPane.showInputDialog(null, "Dosi dzeram naudu?(Ja vai Ne)", null, JOptionPane.QUESTION_MESSAGE);
-//			     
-//			      if(izvele2 == "Ja"){
-//			    	 do{
-//			    		 dzeramNaud = true;
-//						    dzeramNauda = Integer.parseInt(JOptionPane.showInputDialog(null , "Cik dosi?"));
-//						}while(dzeramNauda<0 || dzeramNauda>100);
-//			     }else{
-//			    	 
-//			     }
-//			     
-//			     }while(!atlautaIzvele.contains(izvele2));
-			     
-			     
-			     
+			   
 			     summa = izmersCena + merceCena + piedevasCena; 
 			     
-			     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, siers, summa);
-			     picas.add(pica);
-			     JOptionPane.showMessageDialog(null, pica.ceks(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
+			     Rihards_pica pica = new Rihards_pica(izmers, merce, piedevas, siers, summa);
+			    
+			     Lietotajs lietotajs = new Lietotajs(vards, adrese, pica);
+			     picas.add(lietotajs);
+			     JOptionPane.showMessageDialog(null, lietotajs.ceks(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
 			     try {
 					 FileWriter writer = new FileWriter("picas.txt", true);
-				 	 writer.write(pica.toString()+"\n");
+				 	 writer.write(lietotajs.toString()+"\n");
 				 	 writer.close();
 				 	 JOptionPane.showMessageDialog(null, "Pica ievietota txt faila", null, JOptionPane.INFORMATION_MESSAGE);
 				 }catch(Exception e) {
@@ -184,13 +165,14 @@ public class Moskovojs_pica {
 					    	 //Piegade 3 eiro
 					     summa = izmersCena + merceCena + piedevasCena+3; 
 					     
-				     Rihards_pica pica = new Rihards_pica(vards, adrese, izmers, merce, piedevas, siers, summa);
-				     picas.add(pica);
-					 JOptionPane.showMessageDialog(null, pica.ceks(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
+				     Rihards_pica pica = new Rihards_pica(izmers, merce, piedevas, siers, summa);
+				     Lietotajs lietotajs = new Lietotajs(vards, adrese, pica);
+				     picas.add(lietotajs);
+					 JOptionPane.showMessageDialog(null, lietotajs.ceks(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
 					 
 					 try {
 						 FileWriter writer = new FileWriter("picas.txt", true);
-					 	 writer.write(pica.toString()+"\n");
+					 	 writer.write(lietotajs.toString()+"\n");
 					 	 writer.close();
 					 	 JOptionPane.showMessageDialog(null, "Pica ievietota txt faila", null, JOptionPane.INFORMATION_MESSAGE);
 					 }catch(Exception e) {
@@ -215,7 +197,7 @@ public class Moskovojs_pica {
 			case "Apskatit jau izveidotas picas":
 				if(!picas.isEmpty()) {
 	
-		        	Iterator<Rihards_pica> apskatit = picas.iterator();
+		        	Iterator<Lietotajs> apskatit = picas.iterator();
 		        	String string = "Picas:\n";
 		        	while(apskatit.hasNext()){
 					string += apskatit.next().izvadit();
